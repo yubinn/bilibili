@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>频道</title>
+	<link rel="stylesheet" type="text/css" href="css/pindao.css">
+	<!-- <link rel="stylesheet" type="text/css" href="js/remjs(2).js"> -->
+	<!-- <script type="text/javascript" src='js/remjs(2).js'></script> -->
+	<script type="text/javascript" src='js/jquery-1.11.2.js'></script>
+</head>
+<body>
+	<nav>
+		<p>频道</p>
+	</nav>
+	<!-- 顶上6个频道 -->
+	<section class="six">
+		<div class="six_one">
+			<a href=""><img src="images/pindao/g_fanju.png"><p>番剧</p></a>
+			<a href=""><img src="images/pindao/g_guochuang.png"><p>国创</p></a>
+			<a href=""><img src="images/pindao/g_fangyinting.png"><p>放映厅</p></a>
+			<a href=""><img src="images/pindao/g_jilupian.png"><p>纪录片</p></a>
+		</div>
+		<div class="six_two">
+			<a href=""><img src="images/pindao/g_zhaunlan.png"><p>专栏</p></a>
+			<a href=""><img src="images/pindao/g_yinpin.png"><p>音频</p></a>
+		</div>
+	</section>
+	<section class="mychannel" id="mychannel">
+		<p id="mychannel">我的频道</p>
+		<div class="channel">
+			<p id="nochannel">
+				还没有订阅频道，去发现一些吧~
+			</p>
+			<a href="" id="look">
+				<p>去看看</p>
+			</a>
+		</div>
+	</section>
+	<section class="find_channel">
+		<p>
+			<span>发现更多</span>
+			<a href=""><span>更多</span></a>
+		</p>
+		<div class="find_channel1">
+			<div>
+				<img src="images/pindao/g_music_channel.png">
+				<p class="chuyin">初音11周年</p>
+				<p>1.7万人已订阅</p>
+				<button class="dingyue" style="color:#fb7299"><p>订阅</p></button>
+			</div>
+			<div>
+				<img src="images/pindao/g_movie_channel.png">
+				<p class="yingpin">影评</p>
+				<p>28.9万人已订阅</p>
+				<button class="dingyue"><p>订阅</p></button>
+			</div>
+			<div>
+				<img src="images/pindao/g_guichu_channel.png">
+				<p class="guichu">鬼畜</p>
+				<p>55.5万人已订阅</p>
+				<button class="dingyue"><p>订阅</p></button>
+			</div>
+		
+		</div>
+	</section>
+
+	<!-- 底部发现频道 -->
+	<section class="footer_channel">
+		<div>
+			<a href="">
+				<img src="images/pindao/g_zhibo.png" id="zhibo">
+				<p>直播</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_donghua.png" id="donghua">
+				<p>动画</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_yinyue.png">
+				<p>音乐</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_wudao.png">
+				<p>舞蹈</p>
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<img src="images/pindao/g_youxi.png">
+				<p>游戏</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_keji.png">
+				<p>科技</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_shenghuo.png">
+				<p>生活</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_guichu.png">
+				<p>鬼畜</p>
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<img src="images/pindao/g_shishang.png">
+				<p>时尚</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_guanggao.png">
+				<p>广告</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_yule.png">
+				<p>娱乐</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_yingshi.png">
+				<p>影视</p>
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<img src="images/pindao/g_dianying.png">
+				<p>电影</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/dianshiju.png">
+				<p>电视剧</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_xiaoshipin.png">
+				<p>小视频</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_xiangce.png">
+				<p>相册</p>
+			</a>
+		</div>  
+		<div id="fifth_line">
+			<a href="">
+				<img src="images/pindao/g_huiyuangou.png">
+				<p>会员购</p>
+			</a>
+			<a href="">
+				<img src="images/pindao/g_youxizhongxin.png">
+				<p>游戏中心</p>
+			</a>
+		</div>
+	</section>
+
+</body>
+<script type="text/javascript">
+	$('.dingyue').click(function(e){
+		$('#nochannel').remove();
+		$('#look').remove();
+		$(this).attr("disabled","disabled");
+        e.preventDefault();
+        var bq = $(this).prev().prev().text();
+    	$('.channel').append($("<p id='dingyue_p'>"+bq+"</p>"))
+    	$('.channel').attr('style','flex-direction:row;');
+    	$(this).attr('style','background:#7F7ECB;color:white')
+    }
+   
+	)
+	// $('.dingyue').click(function(){
+	// 	$('.dingyue_p').remove();
+	// 	$(this).attr('style','background:white;')
+	// })
+</script>
+</html>

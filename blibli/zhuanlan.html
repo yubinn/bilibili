@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>专栏</title>
+    <script type="text/javascript" src='js/mui.min.js'></script>
+	<script type="text/javascript" src='js/lunbo.js'></script>
+	<script type="text/javascript" src='js/remjs(2).js'></script>
+	<link rel="stylesheet" type="text/css" href="css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/zhuanlan.css">
+	<script type="text/javascript" src='js/jquery-1.11.2.js'></script>
+</head>
+<body>
+	<header>
+    		<div>
+    			<p>
+    				<a href=""><span class="mui-icon mui-icon mui-icon-arrowleft"></span></a>
+    				<span>专栏</span>
+    				<a href=""><span class="mui-icon mui-icon-compose"></span></a>
+    				<a href=""><span class="mui-icon mui-icon-search"></span></a>
+    			</p>
+    		</div>
+    		<ul>
+    			<a href=""><li>推荐</li></a>
+    			<a href=""><li>动画</li></a>
+    			<a href=""><li>游戏</li></a>
+    			<a href=""><li>影视</li></a>
+    			<a href=""><li>生活</li></a>
+    			<a href=""><li>兴趣</li></a>
+    			<a href=""><li>轻小说</li></a>
+    			<a href=""><li>科技</li></a>
+    		</ul>
+    </header>
+    <!-- 分割线 -->
+    <div class="cutline"></div>
+    <!-- 轮播图 -->
+    <section class="mui-slider">
+        	<div class="mui-slider-group mui-slider-loop">
+        	<!--支持循环，需要重复图片节点-->
+        		<div class="mui-slider-item mui-slider-item-duplicate"><a href="#">	<img src="images/pindao/zhuanlan/g_lunbo4.jpg"></a></div>
+        		<div class="mui-slider-item"><a href="#"><img src="images/pindao/zhuanlan/g_lunbo1.jpg"></a></div>
+        		<div class="mui-slider-item"><a href="#"><img src="images/pindao/zhuanlan/g_lunbo2.jpg"></a></div>
+       	 		<div class="mui-slider-item"><a href="#"><img src="images/pindao/zhuanlan/g_lunbo3.jpg"></a></div>
+       	 		<div class="mui-slider-item"><a href="#"><img src="images/pindao/zhuanlan/g_lunbo4.jpg"></a></div>
+       	 		<div class="mui-slider-item"><a href="#"><img src="images/pindao/zhuanlan/g_lunbo1.jpg"></a></div>
+       	 	<!--支持循环，需要重复图片节点-->
+        	</div>
+        </section>
+        <!-- 推荐文章 -->
+        <section class="article">
+        	<p>推荐文章</p>
+        	<p>热门文章</p>
+        </section>
+        <section class="article_all">
+        		<div class="article_pic">
+	        		<p>阿尔瓦</p>
+	        		<p>世界末日，请抓住我的手</p>
+	        		<img src="images/pindao/zhuanlan/g_article1.jpg">
+	        		<p>
+	        			大概就是一个少年末日逃生的故事，或者，渐渐会成长为一个英雄？太阳下山了，暗红色的光亮挂满了整片西天。几片云朵从远处飘荡过来，不断变换着形状，在经过这座已成了废墟的城市时，好似躲避般地加快了速度。整个城市空荡荡的，破败的街道上看不见一个人影，车辆乱七八糟地停在路上...
+					</p>
+					<p class="last_p">
+						<span>
+							原创连载&nbsp;.&nbsp;200阅读
+						</span>
+						
+						<span>15</span>
+						<span>10</span>
+					</p>
+				</div>
+        </section>
+</body>
+	<script type="text/javascript">
+		$(function(){
+			getData();
+			function getData(){
+				// var temp = '';
+				$.ajax({
+					type: "get",
+					url:"zhuanlan.json",
+					dataType:"json",
+					success:function(res){
+						var list = res.data
+						console.log(list)
+						for(let i = 0; i<(list.length); i++){
+							var str = `<div class="article_pic">
+	        		<p>${list[i].img}</p>
+	        		<p>世界末日，请抓住我的手</p>
+	        		<img src="images/pindao/zhuanlan/g_article1.jpg">
+	        		<p>
+	        			大概就是一个少年末日逃生的故事，或者，渐渐会成长为一个英雄？太阳下山了，暗红色的光亮挂满了整片西天。几片云朵从远处飘荡过来，不断变换着形状，在经过这座已成了废墟的城市时，好似躲避般地加快了速度。整个城市空荡荡的，破败的街道上看不见一个人影，车辆乱七八糟地停在路上...
+					</p>
+					<p class="last_p">
+						<span>
+							原创连载&nbsp;.&nbsp;200阅读
+						</span>
+						
+						<span>${list[i].p}</span>
+						<span>10</span>
+					</p>
+				</div>`;
+				$(str).appendTo($('.article_all'))
+						}
+					}
+				})
+			}
+		})
+	</script>
+</html>
